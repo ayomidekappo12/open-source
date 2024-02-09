@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+//import { createStore } from "redux";
 import { Provider } from "react-redux";
 import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
-import { Map } from "immutable";
+//import { Map } from "immutable";
 
-const store = createStore(uiReducer, Map(initialState));
+//const store = createStore(uiReducer, Map(initialState));
 
 ReactDOM.render(
   <React.StrictMode>
