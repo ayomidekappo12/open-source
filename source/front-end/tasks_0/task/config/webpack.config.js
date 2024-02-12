@@ -9,8 +9,10 @@ module.exports = {
     path: path.resolve("./dist"),
   },
   devServer: {
+    static: {
+      directory: path.join(__dirname, "/dist"),
+    },
     hot: true,
-    contentBase: path.resolve("./dist"),
     compress: true,
     port: 8564,
   },

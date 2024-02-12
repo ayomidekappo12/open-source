@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [showPassword, setshowPassword] = useState(false);
@@ -16,7 +17,10 @@ const Login = () => {
     await axios
       .post(
         `${server}/user/login-user`,
-        { email: email, password: password },
+        {
+          email,
+          password,
+        },
         { withCredentials: true }
       )
       .then((res) => {
@@ -68,7 +72,7 @@ const Login = () => {
                 </label>
                 <div className="mt-1 relative">
                   <input
-                    type={visible ? "text" : "password"}
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     autoComplete="current-password"
                     required
@@ -80,13 +84,13 @@ const Login = () => {
                     <AiOutlineEye
                       className="absolute right-2 top-2 cursor-pointer"
                       size={25}
-                      onClick={() => setVisible(false)}
+                      onClick={() => setshowPassword(false)}
                     />
                   ) : (
                     <AiOutlineEyeInvisible
                       className="absolute right-2 top-2 cursor-pointer"
                       size={25}
-                      onClick={() => setVisible(true)}
+                      onClick={() => setshowPassword(true)}
                     />
                   )}
                 </div>
